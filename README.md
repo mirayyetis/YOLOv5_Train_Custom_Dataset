@@ -10,7 +10,7 @@ If you want to train a model using the YOLOv5 algorithm via the command line, yo
 3) We need to create a **data YAML** file. Copy the **coco128 YAML** file and create a YAML file for yourself named **custom_data**. Here, you need to adjust the relevant paths. Also, you need to write the labels you assigned to the labeled data in Roboflow. *(For example, I labeled the forward-left sign and set the label number to 6; accordingly, I edited my YAML file.)*
 4) The **train.py** code is used in the training section.
 5) You should enter the **cmd** and navigate to the yolov5-master folder. While in this folder, you need to run the following command:
-**```python train.py --img 416 --batch 32 --epochs 100 --data custom_data.yaml --weights yolov5s.pt –cache```**
+**```python train.py --img 416 --batch 32 --epochs 100 --data custom_data.yaml --weights yolov5s.pt –-cache```**
 Your training will begin. *(You can change the values of img, batch, and epoch here)*. When the training is complete, in the yolov5-master folder, you will find the **best.pt** file in the runs folder, which is your created model.
  6) If you encounter errors during training due to library versions, you need to install the versions listed in the **requirements.txt** file. To do this, go to the cmd, enter the yolov5-master folder, and run the following command:
 **```python -m pip install -r requirements.txt```**
