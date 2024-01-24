@@ -1,19 +1,19 @@
 # YOLOv5_Train_Custom_Dataset
 ## Training custom dataset with YOLOv5
 
- Model eğitimi yapmak istiyorsanız ilk olarak veri toplamanız gerekmektedir. Daha sonra topladığınız bu görselleri **Roboflow** üzerinden etiketlemeniz gerekmektedir. Örnek bir dataset yukarıdaki dataset dosyasında yer almaktadır. Örnek bir dataset de bıraktım deneyebilmeniz için **sag_right-roboflow** adında.
+ If you want to train a model, you first need to collect data. After collecting these images, you need to label them using **Roboflow**. An example dataset is provided above, and I've left a sample dataset named **sag_right-roboflow** for you to try.
 
-YOLOv5 algoritmasını kullanarak cmd üzerinden model eğitimi yapmak istiyorsanız şu adımları yapmanız gerekmektedir :
+If you want to train a model using the YOLOv5 algorithm via the command line, you need to follow these steps:
 
-1) yolov5-master klasörünü bilgisayarınıza indirip zip’ten çıkartın.
-2) yolov5-master içerisinde yer alan **data** klasörüne oluşturduğunuz veri setini yükleyin. (ama verileriniz benim yüklemiş olduğum **ilerisol_deneme**klasöründeki düzende olmalıdır!)
-3) Bir **data yaml** dosyası oluşturmamız gerekmektedir. **coco128 yaml** dosyasını kopyalayıp **custom_data** adında bir yaml dosyası kendiniz için oluşturmalısınız. Burada ilgili *pathleri* düzenlemeniz gerekmektedir. Birde roboflowda etiketlediğiniz verilere atadığınız etiketleri yazmanız gerekmektedir. *(Örneğin ben ileri sol tabelası etiketlemiştim ve etiket numarasını 6 olarak belirlemiştim buna göre yaml dosyamı düzenledim)*
-4) Eğitim kısmında **train.py** kodu kullanılmaktadır. 
-5) **cmd** üzerinden yolov5-master klasörünüz içerisine girmelisiniz. Bu klasörün içerisindeyken şu komutu çalıştırmanız gerekmektedir :
-**``` python train.py --img 416 --batch 32 --epochs 100 --data custom_data.yaml --weights yolov5s.pt –cache ```**
-Eğitiminiz başlayacaktır. *(burada yer alan img, batch ve epoch değerlerini değiştirebilirsiniz)*. Eğitim tamamlanınca yolov5-master klasörünüz içerisindeki **runs** klasörünün içerisine gittiğinizde **best.pt** dosyası ile karşılaşacaksınız bu oluşturmuş olduğunuz modeldir.
- 6) Eğer eğitim sırasında kütüphanelerin sürümlerinden kaynaklı hata alıyorsanız eğer klasörde de yer alan **requirements.tx**t dosyasının içerisinde yer alan sürümleri yüklemeniz gerekmektdir. Bunun içinde cmd üzerinden yolov5-master klasörünüz içerisine girip şu komutu başlatmalısınız : 
-**```python -m pip install -r requirements.txt ```**
+1) Download the yolov5-master folder to your computer and unzip it.
+2) Upload your dataset to the **data** folder inside the yolov5-master. (But your data should be in the same structure as the **ilerisol_deneme** folder that I uploaded!)
+3) We need to create a **data YAML** file. Copy the **coco128 YAML** file and create a YAML file for yourself named **custom_data**. Here, you need to adjust the relevant paths. Also, you need to write the labels you assigned to the labeled data in Roboflow. *(For example, I labeled the forward-left sign and set the label number to 6; accordingly, I edited my YAML file.)*
+4) The **train.py** code is used in the training section.
+5) You should enter the **cmd** and navigate to the yolov5-master folder. While in this folder, you need to run the following command:
+**```python train.py --img 416 --batch 32 --epochs 100 --data custom_data.yaml --weights yolov5s.pt –cache```**
+Your training will begin. *(You can change the values of img, batch, and epoch here)*. When the training is complete, in the yolov5-master folder, you will find the **best.pt** file in the runs folder, which is your created model.
+ 6) If you encounter errors during training due to library versions, you need to install the versions listed in the **requirements.txt** file. To do this, go to the cmd, enter the yolov5-master folder, and run the following command:
+**```python -m pip install -r requirements.txt```**
 
-7) Oluşturduğunuz modeli bilgisayar kameranız ile test etmek istiyorsanız **yolov5_real_time.py** kodunun içerisine best.pt dosyanızın yolunu ilgili yere yerleştirdikten sonra kodu çalıştırarak görebilrisiniz.
+7) If you want to test the model you created with your computer camera, after placing the path of your **best.pt** file in the relevant place in **yolov5_real_time.py**, you can see the results by running the code.
 
