@@ -17,7 +17,7 @@ Your training will begin. *(You can change the values of img, batch, and epoch h
 
 7) If you want to test the model you created with your computer camera, after placing the path of your **best.pt** file in the relevant place in **yolov5_real_time.py**, you can see the results by running the code.
 
-**Tagging example via Roboflow:**
+**Labeling the data through Roboflow:**
 
 ![y](https://github.com/mirayyetis/YOLOv5_Train_Custom_Dataset/assets/121189200/b69f43cd-8fc0-46ce-b7da-2930e0febbd6)
 
